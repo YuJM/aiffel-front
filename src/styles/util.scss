@@ -1,0 +1,85 @@
+@mixin genSpace($prop) {
+  &-0 {
+    #{$prop}: 0;
+  }
+  @for $i from 1 through 20 {
+    $value: ($i*4);
+    $size: $value+px;
+    &-#{$value} {
+      #{$prop}: $size
+    }
+    &x-#{$value} {
+      #{$prop}: 0 $size;
+    }
+    &y-#{$value} {
+      #{$prop}: $size 0;
+    }
+    &b-#{$value} {
+      #{$prop}-bottom: $size;
+    }
+    &t-#{$value} {
+      #{$prop}-top: $size;
+    }
+    &r-#{$value} {
+      #{$prop}-right: $size;
+    }
+    &l-#{$value} {
+      #{$prop}-left: $size;
+    }
+  }
+}
+
+@mixin whMixin($prop){
+  @for $i from 1 through 20 {
+    $value: ($i*4);
+    $size: $value+px;
+    &-#{$value} {
+      #{$prop}: $size;
+    }
+  }
+}
+.m {
+  @include genSpace('margin');
+}
+
+.p {
+  @include genSpace('padding');
+}
+
+.h {
+  @include whMixin('height');
+}
+.w {
+  @include whMixin('width');
+}
+
+.flex {
+  display: flex;
+
+  $justify-positions: (
+          start: flex-start,
+          end: flex-end,
+          center: center,
+          around: space-around,
+          between: space-between,
+          evenly: space-evenly
+  );
+  $align-positions: (
+          start: flex-start,
+          end: flex-end,
+          center: center,
+          stretch: stretch,
+          baseline: baseline
+  );
+
+  @mixin just-align($name,$prop,$arr) {
+    @each $mod, $dir in $arr {
+      &--#{$name}-#{$mod} {
+        #{$prop}: #{$dir};
+      }
+    }
+  }
+
+  @include just-align('align', 'align-items', $align-positions);
+  @include just-align('justify', 'justify-content', $justify-positions);
+}
