@@ -1,0 +1,3 @@
+@mixin transMixin($time: .2s) {
+  transition: ease $time;
+}

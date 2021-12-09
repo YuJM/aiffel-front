@@ -1,0 +1,18 @@
+.#{$prefix}-card{
+  $color: rgba($border-color, 0.7);
+  border: 1px solid $color;
+  //box-shadow: 2px 2px 8px -1px rgba(0, 0, 0, 0.3);
+  border-radius: $radius;
+  &-header{
+    padding: 1rem;
+    border-bottom: 1px solid $color;
+    .title{
+      font-size: large;
+      font-weight: bold;
+      margin: 0;
+    }
+  }
+  &-body{
+    padding: 1rem;
+  }
+}

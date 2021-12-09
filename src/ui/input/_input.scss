@@ -1,0 +1,33 @@
+$input: #{$prefix}-input;
+.#{$input} {
+  border: 1px solid $border-color;
+  box-sizing: border-box;
+  border-radius: $radius;
+  position: relative;
+  @include transMixin();
+  &-focus {
+    border-color: $primary-color;
+  }
+  &-error {
+    border-color: $warn-color;
+  }
+  &-disabled {
+    background: $disable-bg-color;
+  }
+
+  &-wrap {
+    input {
+      background: none;
+      border: none;
+      outline: none;
+      line-height: 2rem;
+      padding: 0 0.5rem;
+      display: block;
+      width: 100%;
+
+      &::placeholder {
+        color: darken($border-color, 10%);
+      }
+    }
+  }
+}
