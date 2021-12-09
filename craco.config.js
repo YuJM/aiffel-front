@@ -9,6 +9,7 @@ module.exports = {
       '@hooks': path.resolve(__dirname, 'src/hooks'),
       '@components': path.resolve(__dirname, 'src/components'),
       '@pages': path.resolve(__dirname, 'src/pages'),
+      '@store': path.resolve(__dirname, 'src/store'),
     },
   },
   jest: {
