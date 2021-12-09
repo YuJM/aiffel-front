@@ -1,0 +1,59 @@
+
+.#{$prefix}-header {
+  $size: 4rem;
+  height: $size;
+  display: flex;
+  padding: 1rem;
+  justify-content: space-between;
+  box-shadow: 0px 1px 10px -5px #666;
+
+  .logo {
+    height: 100%;
+    //width: $size;
+    display: inline-block;
+
+    img {
+      display: inline-block;
+      height: 100%;
+    }
+  }
+
+  .avatar {
+    display: inline-block;
+    vertical-align: middle;
+    cursor: pointer;
+    position: relative;
+    border-radius: 50%;
+    overflow: hidden;
+
+    .overlay {
+      display: block;
+      position: absolute;
+      background: rgba(3, 3, 3, 0.5);
+      transition: .2s ease;
+      top: 0;
+      right: 0;
+      left: 0;
+      opacity: 0;
+      z-index: 10;
+      height: 100%;
+      border-radius: 50%;
+
+    }
+
+    &:hover {
+      .overlay {
+        opacity: 1;
+      }
+
+    }
+
+    img {
+      display: inline-block;
+      height: 100%;
+    }
+
+
+  }
+
+}
