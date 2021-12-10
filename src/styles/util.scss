@@ -29,7 +29,7 @@
   }
 }
 
-@mixin whMixin($prop){
+@mixin whMixin($prop) {
   @for $i from 1 through 20 {
     $value: ($i*4);
     $size: $value+px;
@@ -38,6 +38,7 @@
     }
   }
 }
+
 .m {
   @include genSpace('margin');
 }
@@ -48,14 +49,32 @@
 
 .h {
   @include whMixin('height');
+
+  &-full {
+    height: 100%;
+  }
 }
+
 .w {
   @include whMixin('width');
+
+  &-full {
+    width: 100%;
+  }
 }
 
 .flex {
   display: flex;
 
+  &-column {
+    flex-direction: column;
+  }
+
+  @for $i from 1 through 10 {
+    &-#{$i} {
+      flex: $i;
+    }
+  }
   $justify-positions: (
           start: flex-start,
           end: flex-end,
@@ -74,7 +93,7 @@
 
   @mixin just-align($name,$prop,$arr) {
     @each $mod, $dir in $arr {
-      &--#{$name}-#{$mod} {
+      &-#{$name}-#{$mod} {
         #{$prop}: #{$dir};
       }
     }
@@ -82,4 +101,9 @@
 
   @include just-align('align', 'align-items', $align-positions);
   @include just-align('justify', 'justify-content', $justify-positions);
+}
+
+
+h1, h2, h3, h4 {
+  margin: 0;
 }
