@@ -3,16 +3,16 @@ import Card from '@ui/card';
 import Input, { InputErrorMessage } from '@ui/input';
 import Button from '@ui/button';
 import { useForm } from 'react-hook-form';
-import { TFormData } from '@model/auth';
+import { TLoginForm } from '@model/auth';
 
-const LoginForm: React.FC<{ onSubmit: (data: TFormData) => void }> = ({
+const LoginForm: React.FC<{ onSubmit: (data: TLoginForm) => void }> = ({
   onSubmit,
 }) => {
   const {
     register,
     handleSubmit,
     formState: { errors, isValid },
-  } = useForm<TFormData>({ mode: 'onChange' });
+  } = useForm<TLoginForm>({ mode: 'onChange' });
 
   return (
     <Card style={{ width: '350px' }}>
