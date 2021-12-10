@@ -1,4 +1,25 @@
 
-.#{$prefix}-textarea {
+textarea.#{$prefix}-textarea {
+  border: 1px solid $border-color;
+  box-sizing: border-box;
+  border-radius: $radius;
+  @include transMixin();
+  position: relative;
+  outline: none;
+  overflow: hidden;
+  display: block;
+  padding: 0.5rem;
+
+  &::placeholder {
+    color: darken($border-color, 10%);
+  }
+
+  &:focus {
+    border-color: $primary-color;
+  }
+
+  &-invalid {
+    border-color: $warn-color !important;
+  }
 
 }

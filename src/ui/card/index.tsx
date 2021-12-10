@@ -4,14 +4,19 @@ import { prefix } from '../core';
 
 type baseType = HTMLAttributes<HTMLDivElement>;
 
-export interface CardProps extends baseType {}
+export interface CardProps extends baseType {
+  focus?: boolean;
+}
 
 const cardClsName = `${prefix}-card`;
 
 function Card(props: CardProps) {
-  const { children, className, ...otherProps } = props;
+  const { children, className, focus, ...otherProps } = props;
   return (
-    <div className={classNames(cardClsName, className)} {...otherProps}>
+    <div
+      className={classNames(cardClsName, { focus }, className)}
+      {...otherProps}
+    >
       {children}
     </div>
   );

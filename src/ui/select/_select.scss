@@ -1,3 +1,20 @@
 .#{$prefix}-select {
+  background-color: white;
+  border: 1px solid $border-color;
+  box-sizing: border-box;
+  outline: none;
+  line-height: 2rem;
+  height: 2rem;
+  padding: 0 0.5rem;
+  border-radius: $radius;
+  color: rgba($text-color, 0.7);
+
+  &:focus {
+    border-color: $primary-color;
+  }
+
+  &-invalid {
+    border-color: $warn-color !important;
+  }
 
 }

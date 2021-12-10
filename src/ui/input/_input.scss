@@ -1,21 +1,33 @@
 $input: #{$prefix}-input;
 .#{$input} {
-  border: 1px solid $border-color;
-  box-sizing: border-box;
-  border-radius: $radius;
   position: relative;
-  @include transMixin();
-  &-focus {
-    border-color: $primary-color;
-  }
-  &-invalid {
-    border-color: $warn-color;
-  }
-  &-disabled {
-    background: $disable-bg-color;
+
+  &-init {
+    display: inline-flex;
+    text-align: center;
+    line-height: inherit;
+    position: absolute;
+    cursor: pointer;
+    width: 1.5rem;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    color: $border-color;
+
+    &:hover {
+      color: $primary-color;
+    }
   }
 
   &-wrap {
+    border: 1px solid $border-color;
+    box-sizing: border-box;
+    border-radius: $radius;
+    @include transMixin();
+    position: relative;
+
     input {
       background: none;
       border: none;
@@ -31,10 +43,42 @@ $input: #{$prefix}-input;
     }
   }
 
-  &-error-message{
-      padding: 0.3rem 0 0 0 ;
-      line-height: 1.2rem;
-      font-size: 1rem;
-       color:$warn-color;
+  &.search {
+    display: flex;
+    width: 100%;
+
+    .#{$input} {
+      &-wrap {
+        flex: 1;
+        border-right-width: 0;
+        border-radius: $radius 0 0 $radius;
+      }
+
+      &-right-btn {
+        border-radius: 0 $radius $radius 0;
+      }
+    }
+  }
+
+
+  /*status*/
+  &-focus > * {
+    border-color: $primary-color !important;
+  }
+
+  &-invalid > * {
+    border-color: $warn-color !important;
+  }
+
+  &-disabled > * {
+    background: $disable-bg-color !important;
+  }
+
+
+  &-error-message {
+    padding: 0.3rem 0 0 0;
+    line-height: 1.2rem;
+    font-size: 1rem;
+    color: $warn-color;
   }
 }
