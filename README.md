@@ -8,6 +8,14 @@ tsconfig.path.json를 확인 해주세요
 
 ## Run
 
+### Server run
+
+```bash
+npm run server:start
+```
+
+### Client run
+
 ```bash
 npm start
 ```
